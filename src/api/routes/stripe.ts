@@ -33,7 +33,8 @@ stripeRouter.post('/checkout', async (req: Request, res: Response) => {
     return res.json({ checkoutUrl: session.url });
   } catch (err) {
     console.error('Stripe checkout error:', err);
-    return res.status(500).json({ code: 'STRIPE_ERROR', message: 'Fehler beim Erstellen der Checkout Session' });
+    const errMsg = err instanceof Error ? err.message : String(err);
+    return res.status(500).json({ code: 'STRIPE_ERROR', message: errMsg });
   }
 });
 
