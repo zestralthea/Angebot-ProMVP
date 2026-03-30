@@ -65,7 +65,7 @@ Schreibe jetzt den professionellen Angebotstext (ca. 200-350 Wörter). Struktur:
 Ton: professionell, kompetent, persönlich. KEIN generisches Marketing. Zeige Verständnis für das spezifische Projekt.`;
 
   const message = await client.messages.create({
-    model: 'claude-3-5-haiku-20241022',
+    model: 'claude-3-haiku-20240307',
     max_tokens: 800,
     messages: [{ role: 'user', content: prompt }],
   });
