@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx ruflo@latest init --wizard)",
+      "Bash(npm --version)",
+      "Bash(\"/c/Program Files/nodejs/npx.cmd\" ruflo@latest init --wizard)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "WebSearch"
+    ]
+  }
+}

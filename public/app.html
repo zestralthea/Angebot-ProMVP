@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AngebotPro – App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="app-layout">
+
+  <!-- Header -->
+  <header class="app-header">
+    <a href="/" class="logo" style="text-decoration:none">Angebot<span>Pro</span></a>
+    <div style="flex:1"></div>
+    <a href="/" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:.82rem;margin-right:20px">← Zur Startseite</a>
+    <div class="app-user-badge">Testphase aktiv</div>
+  </header>
+
+  <div class="app-body">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-section-label">Dokumente</div>
+      <button class="sidebar-link active" id="nav-angebot" onclick="showView('angebot')">
+        <span class="sidebar-icon">✍️</span> Angebot erstellen
+      </button>
+      <button class="sidebar-link" id="nav-rechnung" onclick="showView('rechnung')">
+        <span class="sidebar-icon">🧾</span> Rechnung erstellen
+      </button>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-section-label">Konto</div>
+      <button class="sidebar-link" id="nav-profil" onclick="showView('profil')">
+        <span class="sidebar-icon">👤</span> Mein Profil
+      </button>
+    </aside>
+
+    <!-- Main -->
+    <main class="app-content">
+
+      <!-- ═══ VIEW: ANGEBOT ═══ -->
+      <div id="view-angebot">
+        <div class="view-header">
+          <div>
+            <h2>Neues Angebot</h2>
+            <p class="view-sub">Fülle die Felder aus — die KI schreibt deinen Angebotstext automatisch.</p>
+          </div>
+          <div class="step-pills">
+            <span class="step-pill active">1 Deine Daten</span>
+            <span class="step-pill">2 Kunde</span>
+            <span class="step-pill">3 Projekt</span>
+            <span class="step-pill">4 Positionen</span>
+          </div>
+        </div>
+
+        <!-- Deine Daten -->
+        <div class="form-section">
+          <div class="form-section-head">
+            <div class="form-section-num">1</div>
+            <h3>Deine Daten</h3>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Dein Name *</label>
+              <input type="text" id="fl-name" placeholder="Max Mustermann">
+            </div>
+            <div class="form-group">
+              <label>Firma (optional)</label>
+              <input type="text" id="fl-firma" placeholder="Mustermann Design">
+            </div>
+            <div class="form-group">
+              <label>Beruf *</label>
+              <select id="fl-beruf">
+                <option value="webdesigner">Webdesigner</option>
+                <option value="entwickler">Entwickler</option>
+                <option value="texter">Texter / Copywriter</option>
+                <option value="fotograf">Fotograf</option>
+                <option value="grafiker">Grafiker</option>
+                <option value="berater">Unternehmensberater</option>
+                <option value="uebersetzer">Übersetzer</option>
+                <option value="social_media">Social-Media-Manager</option>
+                <option value="sonstige">Sonstige</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>E-Mail *</label>
+              <input type="email" id="fl-email" placeholder="max@example.de">
+            </div>
+            <div class="form-group full">
+              <label>Straße & Hausnummer *</label>
+              <input type="text" id="fl-adresse" placeholder="Musterstraße 1">
+            </div>
+            <div class="form-group">
+              <label>PLZ *</label>
+              <input type="text" id="fl-plz" placeholder="12345" maxlength="5">
+            </div>
+            <div class="form-group">
+              <label>Ort *</label>
+              <input type="text" id="fl-ort" placeholder="Berlin">
+            </div>
+            <div class="form-group">
+              <label>Steuernummer</label>
+              <input type="text" id="fl-steuer" placeholder="12/345/67890">
+            </div>
+            <div class="form-group">
+              <label>USt-IdNr.</label>
+              <input type="text" id="fl-ust" placeholder="DE123456789">
+            </div>
+            <div class="form-group">
+              <label>IBAN</label>
+              <input type="text" id="fl-iban" placeholder="DE89 3704 0044 0532 0130 00">
+            </div>
+            <div class="form-group">
+              <label>BIC</label>
+              <input type="text" id="fl-bic" placeholder="COBADEFFXXX">
+            </div>
+            <div class="checkbox-row">
+              <input type="checkbox" id="fl-klein">
+              <label for="fl-klein">Kleinunternehmer nach § 19 UStG — keine Umsatzsteuer ausweisen</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kundendaten -->
+        <div class="form-section">
+          <div class="form-section-head">
+            <div class="form-section-num">2</div>
+            <h3>Kundendaten</h3>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Ansprechpartner *</label>
+              <input type="text" id="kd-name" placeholder="Frau Dr. Müller">
+            </div>
+            <div class="form-group">
+              <label>Firma des Kunden</label>
+              <input type="text" id="kd-firma" placeholder="Zahnarztpraxis Müller">
+            </div>
+            <div class="form-group full">
+              <label>Adresse *</label>
+              <input type="text" id="kd-adresse" placeholder="Hauptstraße 10">
+            </div>
+            <div class="form-group">
+              <label>PLZ *</label>
+              <input type="text" id="kd-plz" placeholder="70173">
+            </div>
+            <div class="form-group">
+              <label>Ort *</label>
+              <input type="text" id="kd-ort" placeholder="Stuttgart">
+            </div>
+          </div>
+        </div>
+
+        <!-- Projekt -->
+        <div class="form-section">
+          <div class="form-section-head">
+            <div class="form-section-num">3</div>
+            <h3>Projekt</h3>
+          </div>
+          <div class="form-grid">
+            <div class="form-group full">
+              <label>Projekttitel *</label>
+              <input type="text" id="proj-titel" placeholder="Website-Relaunch Zahnarztpraxis">
+            </div>
+            <div class="form-group full">
+              <label>Projektbeschreibung * <span style="font-weight:400;color:var(--text-3)">(mind. 20 Zeichen — wird von der KI genutzt)</span></label>
+              <textarea id="proj-beschreibung" rows="4" placeholder="Beschreibe das Projekt, was der Kunde benötigt und welche Leistungen du erbringst..."></textarea>
+            </div>
+            <div class="form-group">
+              <label>Bearbeitungszeit</label>
+              <input type="text" id="proj-zeit" placeholder="4 Wochen">
+            </div>
+            <div class="form-group">
+              <label>Angebot gültig bis</label>
+              <input type="date" id="proj-gueltig">
+            </div>
+            <div class="form-group">
+              <label>Zahlungsziel (Tage)</label>
+              <input type="number" id="proj-zahlung" value="14" min="1" max="90">
+            </div>
+          </div>
+        </div>
+
+        <!-- Positionen -->
+        <div class="form-section">
+          <div class="form-section-head">
+            <div class="form-section-num">4</div>
+            <h3>Leistungspositionen</h3>
+          </div>
+
+          <!-- Tabellen-Header -->
+          <div class="pos-header">
+            <div class="pos-col-bez">Bezeichnung</div>
+            <div class="pos-col-sm">Menge</div>
+            <div class="pos-col-sm">Einheit</div>
+            <div class="pos-col-sm">Preis (€)</div>
+            <div class="pos-col-sm">Gesamt</div>
+            <div style="width:36px"></div>
+          </div>
+
+          <div id="positionen-container"></div>
+
+          <button class="btn-add-pos" onclick="addPosition()">+ Position hinzufügen</button>
+
+          <!-- Live-Summe -->
+          <div class="live-summe" id="live-summe">
+            <div class="live-summe-row">
+              <span>Zwischensumme (netto)</span>
+              <span id="sum-netto">0,00 €</span>
+            </div>
+            <div class="live-summe-row" id="sum-ust-row">
+              <span>zzgl. 19% USt.</span>
+              <span id="sum-ust">0,00 €</span>
+            </div>
+            <div class="live-summe-total">
+              <span>Gesamtbetrag</span>
+              <span id="sum-total">0,00 €</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div id="result-area"></div>
+
+        <!-- Action Buttons -->
+        <div class="action-bar">
+          <button class="btn btn-primary" id="btn-generate" onclick="generateAngebot()">
+            <span id="btn-generate-label">✨ KI-Angebot generieren</span>
+          </button>
+          <button class="btn btn-outline hidden" id="btn-pdf" onclick="downloadAngebotPDF()">
+            ⬇ PDF herunterladen
+          </button>
+          <button class="btn btn-outline hidden" id="btn-to-rechnung" onclick="angebotToRechnung()">
+            Als Rechnung erstellen →
+          </button>
+        </div>
+      </div>
+
+      <!-- ═══ VIEW: RECHNUNG ═══ -->
+      <div id="view-rechnung" class="hidden">
+        <div class="view-header">
+          <div>
+            <h2>Rechnung erstellen</h2>
+            <p class="view-sub">GoBD-konforme Rechnung — Rechnungsnummer wird automatisch vergeben.</p>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-head">
+            <div class="form-section-num">1</div>
+            <h3>Leistungsdaten</h3>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Leistungsdatum * <span style="font-weight:400;color:var(--text-3)">(Pflichtangabe §14 UStG)</span></label>
+              <input type="date" id="re-leistung">
+            </div>
+            <div class="form-group">
+              <label>Referenz Angebotsnummer</label>
+              <input type="text" id="re-angebot-nr" placeholder="AN-2026-12345">
+            </div>
+          </div>
+          <div class="info-box">
+            💡 Freelancer-, Kunden- und Positionsdaten werden aus dem Angebot übernommen.
+            Bearbeite sie im <button class="link-btn" onclick="showView('angebot')">Angebot-Tab</button>.
+          </div>
+        </div>
+
+        <div id="rechnung-result-area"></div>
+
+        <div class="action-bar">
+          <button class="btn btn-primary" id="btn-rechnung" onclick="downloadRechnung()">
+            <span id="btn-rechnung-label">🧾 Rechnung als PDF erstellen</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ═══ VIEW: PROFIL ═══ -->
+      <div id="view-profil" class="hidden">
+        <div class="view-header">
+          <div>
+            <h2>Mein Profil</h2>
+            <p class="view-sub">Speichere deine Stammdaten für zukünftige Angebote.</p>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-head">
+            <div class="form-section-num">💾</div>
+            <h3>Profil speichern & laden</h3>
+          </div>
+          <p style="font-size:.9rem;color:var(--text-3);margin-bottom:20px">
+            Deine Freelancer-Daten werden lokal in deinem Browser gespeichert — kein Server, keine Cloud.
+          </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <button class="btn btn-primary" onclick="saveProfile()">💾 Profil speichern</button>
+            <button class="btn btn-outline" onclick="loadProfile()">📂 Profil laden</button>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-section-head">
+            <div class="form-section-num">💳</div>
+            <h3>Abo verwalten</h3>
+          </div>
+          <div class="plan-current">
+            <div class="plan-current-badge">Testphase</div>
+            <div>
+              <div style="font-weight:700">14 Tage kostenlos</div>
+              <div style="font-size:.85rem;color:var(--text-3);margin-top:2px">Alle Funktionen inklusive</div>
+            </div>
+          </div>
+          <a href="/#preise" class="btn btn-primary" style="margin-top:16px;display:inline-flex">Abo auswählen →</a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>

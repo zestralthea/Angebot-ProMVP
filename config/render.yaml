@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: angebotpro
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: ANTHROPIC_API_KEY
+        sync: false   # set in Render dashboard
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: STRIPE_PRICE_ID_MONTHLY
+        sync: false
+      - key: STRIPE_PRICE_ID_ANNUAL
+        sync: false
+      - key: BASE_URL
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
