@@ -65,8 +65,7 @@ angebotRouter.post('/generate', async (req: Request, res: Response) => {
     return res.json(result);
   } catch (err) {
     console.error('Angebot generation error:', err);
-    const errMsg = err instanceof Error ? err.message : String(err);
-    return res.status(500).json({ code: 'AI_ERROR', message: errMsg });
+    return res.status(500).json({ code: 'AI_ERROR', message: 'Fehler beim Generieren des Angebotstextes' });
   }
 });
 
