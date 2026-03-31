@@ -8,7 +8,8 @@ import { rechnungRouter } from './routes/rechnung';
 import { stripeRouter } from './routes/stripe';
 
 const app = express();
-const PORT = Number(process.env.PORT) ?? 3000;
+const parsedPort = Number(process.env.PORT);
+const PORT = Number.isFinite(parsedPort) && parsedPort > 0 ? parsedPort : 3000;
 
 // Security
 app.use(helmet({ contentSecurityPolicy: false }));
